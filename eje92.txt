@@ -1,0 +1,59 @@
+import math
+
+def menu_areas():
+    # Estructura Repetir (simulada con while True)
+    while True:
+        print("\n--- MENÚ DE ÁREAS GEOMÉTRICAS ---")
+        print("1. Círculo")
+        print("2. Cuadrado")
+        print("3. Triángulo")
+        print("4. Rectángulo")
+        print("5. Salir")
+        
+        opcion = input("Selecciona una opción (1-5): ").strip()
+        
+        # Estructura Segun (equivalente a if-elif o match)
+        if opcion == "5":
+            print("¡Hasta luego!")
+            break  # Rompe el bucle Repetir
+            
+        elif opcion in ("1", "2", "3", "4"):
+            if opcion == "1":
+                radio = float(input("Ingresa el radio del círculo: "))
+                # Estructura Si para validar que sea positivo
+                if radio > 0:
+                    area = math.pi * (radio ** 2)
+                    print(f"El área del círculo es: {area:.2f}")
+                else:
+                    print("Error: El radio debe ser mayor a cero.")
+                    
+            elif opcion == "2":
+                lado = float(input("Ingresa el lado del cuadrado: "))
+                if lado > 0:
+                    area = lado ** 2
+                    print(f"El área del cuadrado es: {area:.2f}")
+                else:
+                    print("Error: El lado debe ser mayor a cero.")
+                    
+            elif opcion == "3":
+                base = float(input("Ingresa la base del triángulo: "))
+                altura = float(input("Ingresa la altura del triángulo: "))
+                if base > 0 and altura > 0:
+                    area = (base * altura) / 2
+                    print(f"El área del triángulo es: {area:.2f}")
+                else:
+                    print("Error: La base y la altura deben ser mayores a cero.")
+                    
+            elif opcion == "4":
+                base = float(input("Ingresa la base del rectángulo: "))
+                altura = float(input("Ingresa la altura del rectángulo: "))
+                if base > 0 and altura > 0:
+                    area = base * altura
+                    print(f"El área del rectángulo es: {area:.2f}")
+                else:
+                    print("Error: La base y la altura deben ser mayores a cero.")
+        else:
+            print("Opción no válida. Por favor, selecciona un número del 1 al 5.")
+
+# Ejecutar el programa
+menu_areas()

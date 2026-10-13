@@ -1,0 +1,18 @@
+def obtener_respuesta_sn(mensaje="¿Estás de acuerdo? (s/n): "):
+    while True:
+        # Convertimos la entrada a minúsculas y eliminamos espacios extra
+        respuesta = input(mensaje).strip().lower()
+        
+        if respuesta in ("s", "si", "sí"):
+            return True
+        elif respuesta in ("n", "no"):
+            return False
+        else:
+            print("Opción no válida. Por favor, escribe 's' o 'n'.")
+
+# Ejemplo resultado = obtener_respuesta_sn("¿Deseas continuar? (s/n): ")
+
+if resultado:
+    print("¡Genial, continuamos!")
+else:
+    print("Operación cancelada.")

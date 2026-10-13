@@ -1,0 +1,56 @@
+# Inicializamos el saldo de la cuenta
+saldo = 1000.0  # Saldo inicial de ejemplo
+
+print("=== BIENVENIDO A SU BANCA EN LÍNEA ===")
+
+# Bucle principal (equivalente a "repetir")
+while True:
+    print("\n--- MENÚ BANCARIO ---")
+    print("1. Consultar saldo")
+    print("2. Depositar dinero")
+    print("3. Retirar dinero")
+    print("4. Salir")
+    
+    opcion = input("Seleccione una opción (1-4): ").strip()
+
+    # Estructura de selección múltiple (equivalente a "segun")
+    match opcion:
+        case "1":
+            print(f"💰 Su saldo actual es: ${saldo:.2f}")
+
+        case "2":
+            try:
+                deposito = float(input("Ingrese la cantidad a depositar: $"))
+                # Estructura condicional (equivalente a "si")
+                if deposito > 0:
+                    saldo += deposito
+                    print(f"✅ Depósito exitoso. Su nuevo saldo es: ${saldo:.2f}")
+                else:
+                    print("⚠️ Error: El monto a depositar debe ser mayor a cero.")
+            except ValueError:
+                print("❌ Error: Debe ingresar un valor numérico válido.")
+
+        case "3":
+            try:
+                retiro = float(input("Ingrese la cantidad a retirar: $"))
+                
+                # Estructura condicional anidada (equivalente a "si")
+                if retiro > 0:
+                    # Validación de fondos suficientes
+                    if retiro <= saldo:
+                        saldo -= retiro
+                        print(f"✅ Retiro exitoso. Su nuevo saldo es: ${saldo:.2f}")
+                    else:
+                        print(f"❌ Fondos insuficientes. Su saldo disponible es solo de ${saldo:.2f}.")
+                else:
+                    print("⚠️ Error: El monto a retirar debe ser mayor a cero.")
+            except ValueError:
+                print("❌ Error: Debe ingresar un valor numérico válido.")
+
+        case "4":
+            print("👋 Gracias por utilizar nuestro servicio. ¡Hasta pronto!")
+            # Rompe el bucle para finalizar el programa
+            break
+
+        case _:
+            print("❌ Opción inválida. Por favor, elija una opción entre 1 y 4.")

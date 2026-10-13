@@ -1,0 +1,23 @@
+print("Por favor, ingresa 10 números:")
+
+# Estructura Para (For)
+for i in range(1, 11):
+    numero = int(input(f"Número {i}: "))
+    
+    # Estructura Si y Asignar
+    if i == 1:
+        # Asignación inicial para el primer número
+        mayor = numero
+        menor = numero
+    else:
+        # Comparamos y reasignamos si es mayor
+        if numero > mayor:
+            mayor = numero
+            
+        # Comparamos y reasignamos si es menor
+        if numero < menor:
+            menor = numero
+
+print("\n--- Resultados ---")
+print(f"El número mayor es: {mayor}")
+print(f"El número menor es: {menor}")

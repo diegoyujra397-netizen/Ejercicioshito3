@@ -1,0 +1,34 @@
+def contar_mayores_menores():
+    mayores = 0
+    menores = 0
+    
+    print("--- REGISTRO DE EDADES ---")
+    print("Ingresa las edades una por una.")
+    print("Escribe '0' para finalizar y ver los resultados.\n")
+    
+    # Solicitamos la primera edad para iniciar el ciclo
+    edad = int(input("Ingresa una edad (0 para salir): "))
+    
+    # Estructura Mientras (While)
+    while edad != 0:
+        # Validar que no sean edades negativas
+        if edad < 0:
+            print("Error: La edad no puede ser negativa. Inténtalo de nuevo.")
+        else:
+            # Estructura Si (If) para clasificar
+            # Consideramos mayoría de edad a partir de los 18 años
+            if edad >= 18:
+                mayores += 1
+            else:
+                menores += 1
+                
+        # Pedir la siguiente edad dentro del bucle para evitar bucle infinito
+        edad = int(input("Ingresa otra edad (0 para salir): "))
+
+    # Resultados finales
+    print("\n--- RESULTADOS FINALES ---")
+    print(f"Cantidad de personas mayores de edad (>= 18): {mayores}")
+    print(f"Cantidad de personas menores de edad (< 18): {menores}")
+
+# Ejecutar el programa
+contar_mayores_menores()

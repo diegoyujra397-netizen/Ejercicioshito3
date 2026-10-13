@@ -1,0 +1,35 @@
+# Inicializamos el acumulador del total
+total = 0
+
+print("=== SISTEMA DE REGISTRO DE PRODUCTOS ===")
+print("Escribe 'finalizar' cuando desees terminar e imprimir el total.\n")
+
+# Bucle equivalente a "repetir"
+while True:
+    producto = input("Ingrese el nombre del producto: ").strip().lower()
+
+    # Estructura "segun" (match...case en Python)
+    match producto:
+        case "finalizar":
+            # Rompe el bucle para terminar el ingreso
+            break
+        case _:
+            # Bloque para procesar el producto y su precio
+            try:
+                precio = float(input(f"Ingrese el precio de '{producto}': "))
+                
+                if precio < 0:
+                    print("⚠️ El precio no puede ser negativo. Intente nuevamente.")
+                    continue
+                
+                # Acumulador: sumamos el precio al total general
+                total += precio
+                print(f"-> Producto agregado. Subtotal parcial: ${total:.2f}\n")
+                
+            except ValueError:
+                print("❌ Error: Debe ingresar un valor numérico válido para el precio.\n")
+
+# Mostrar resultado final
+print("----------------------------------------")
+print(f"🎉 El total a pagar es: ${total:.2f}")
+print("----------------------------------------")
